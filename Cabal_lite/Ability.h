@@ -3,16 +3,15 @@ class Entity;
 class Ability
 {
 protected:
-	int damageOutput;
-	Entity* caster;
+	int damageOutput,delta;
+	
 public:
-	/*
-	Ability(Entity& caster);
-	Ability(const Ability& ability);
+	
+	//Ability(Entity& caster);
 	
 	
-	~Ability();
-	*/
+	//~Ability();
+	
 	virtual bool castAt(Entity& target) = 0;
 	Ability& operator=(const Ability& ability);
 };

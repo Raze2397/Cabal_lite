@@ -4,9 +4,11 @@ class Wolf :
 	public Monster
 {
 protected:
-	int energy;
+	int maxEnergy,currentEnergy;
 public:
-	Wolf();
+	Wolf(std::string _name);
+	Wolf(const Wolf& wolf);
+	Wolf& operator=(const Wolf & wolf);
 	~Wolf();
 };
 

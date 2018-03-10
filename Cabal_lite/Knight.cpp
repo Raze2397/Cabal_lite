@@ -1,13 +1,10 @@
 #include "Knight.h"
+#include "BasicAttack.h"
 
 
 
 
 
-bool Knight::castAbility(AbilityNames ability, Entity & target)
-{
-	return false;
-}
 
 Knight::Knight(std::string _name, Race _race) : Hero(_name,_race)
 {

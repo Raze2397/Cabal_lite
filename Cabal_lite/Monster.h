@@ -9,12 +9,11 @@ class Monster : public Entity
 {
 private:
 	
-	int armor, abilityPower, attackPower;
-	AbilityNames* abilities;
 public:
-	Monster();
+	Monster(std::string _name = "Unknown");
+	Monster(const Monster& monster);
+	Monster& operator=(const Monster& monster);
 	~Monster();
-	virtual bool castAbility(AbilityNames ability, Monster& monster) = 0;
-	virtual bool castAbility(AbilityNames ability, Hero& hero) = 0;
+	
 };
 

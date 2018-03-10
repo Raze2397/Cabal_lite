@@ -7,12 +7,10 @@
 
 /*Ability::Ability(Entity & caster)
 {
-	
+	damageOutput = 0;
+	delta = 0;
 }
 
-Ability::Ability(const Ability & ability)
-{
-}
 
 
 
@@ -26,6 +24,5 @@ Ability::~Ability()
 Ability & Ability::operator=(const Ability & ability)
 {
 	damageOutput = ability.damageOutput;
-	caster = ability.caster;
 	return *this;
 }
