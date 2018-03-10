@@ -2,18 +2,19 @@
 #include <string>
 #include "Type.h"
 #include "AbilityNames.h"
+#include "Entity.h"
 class Abilities;
 class Hero;
-class Monster
+class Monster : public Entity
 {
 private:
-	std::string name;
-	int maxHP, currentHP, level, armor, abilityPower, attackPower;
-	MonsterAbilityNames* abilities;
+	
+	int armor, abilityPower, attackPower;
+	AbilityNames* abilities;
 public:
 	Monster();
 	~Monster();
-	virtual bool castAbility(MonsterAbilityNames ability, Monster& monster) = 0;
-	virtual bool castAbility(MonsterAbilityNames ability, Hero& monster) = 0;
+	virtual bool castAbility(AbilityNames ability, Monster& monster) = 0;
+	virtual bool castAbility(AbilityNames ability, Hero& hero) = 0;
 };
 

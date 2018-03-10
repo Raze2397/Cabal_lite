@@ -1,7 +1,4 @@
 #pragma once
-enum HeroAbilityNames {
-	BasicAttack,Charge,PowerShot,Fireball
-};
-enum MonsterAbilityNames {
-	Bite,Claw,Stomp
+enum AbilityNames {
+	BasicAttack,Charge,PowerShot,Fireball, Bite, Claw, Stomp
 };
