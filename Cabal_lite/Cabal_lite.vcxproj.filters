@@ -48,6 +48,12 @@
     <ClInclude Include="Bite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Charge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Cabal_lite.rc">
@@ -80,6 +86,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Charge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debuff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

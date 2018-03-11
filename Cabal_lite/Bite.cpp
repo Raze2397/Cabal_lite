@@ -6,12 +6,23 @@
 
 
 
-Bite::Bite(Entity & caster)
+Bite::Bite(Entity & caster) : Ability(caster)
 {
 	srand(time(NULL));
 	int baseDamage = rand() % 3 + 1;
 	damageOutput = baseDamage + caster.getAttackPower();
-	delta = 0;
+	cost = 5;
+	
+}
+
+Bite::Bite(const Bite & bite) : Ability(bite)
+{
+}
+
+class Bite & Bite::operator=(const Bite & bite)
+{
+	Ability::operator=(bite);
+	return *this;
 }
 
 bool Bite::castAt(Entity & target)

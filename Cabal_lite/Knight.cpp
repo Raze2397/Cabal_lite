@@ -10,6 +10,7 @@ Knight::Knight(std::string _name, Race _race) : Hero(_name,_race)
 {
 	currentRage = 0;
 	maxRage = 10;
+	abilities[1] = Charge;
 }
 
 Knight::Knight(const Knight & knight) : Hero(knight)

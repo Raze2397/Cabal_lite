@@ -115,6 +115,8 @@
     <ClInclude Include="AbilityNames.h" />
     <ClInclude Include="BasicAttack.h" />
     <ClInclude Include="Bite.h" />
+    <ClInclude Include="Charge.h" />
+    <ClInclude Include="Debuff.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />
@@ -130,6 +132,8 @@
     <ClCompile Include="Ability.cpp" />
     <ClCompile Include="BasicAttack.cpp" />
     <ClCompile Include="Bite.cpp" />
+    <ClCompile Include="Charge.cpp" />
+    <ClCompile Include="Debuff.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hero.cpp" />

@@ -6,6 +6,8 @@ class BasicAttack :
 {
 public:
 	BasicAttack(Entity& _caster);
+	BasicAttack(const BasicAttack& basic);
+	BasicAttack& operator=(const BasicAttack& basic);
 	~BasicAttack();
 	bool castAt(Entity& target);
 };

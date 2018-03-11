@@ -5,12 +5,24 @@
 #include <cstdlib>
 
 
-BasicAttack::BasicAttack(Entity & _caster)
+BasicAttack::BasicAttack(Entity & _caster) : Ability(_caster)
 {
 	srand(time(NULL));
 	int baseDamage = rand() % 5 + 1;
 	damageOutput = baseDamage + _caster.getAttackPower();
-	delta = 0;
+	cost = 5;
+	
+}
+
+BasicAttack::BasicAttack(const BasicAttack & basic) : Ability(basic)
+{
+
+}
+
+class BasicAttack & BasicAttack::operator=(const BasicAttack & basic)
+{
+	Ability::operator=(basic);
+	return *this;
 }
 
 BasicAttack::~BasicAttack()

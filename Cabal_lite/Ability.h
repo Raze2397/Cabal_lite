@@ -3,16 +3,23 @@ class Entity;
 class Ability
 {
 protected:
-	int damageOutput,delta;
+	double damageOutput;
+    double delta;
+	int cooldownRemaining;
+	int cost;
 	
 public:
 	
-	//Ability(Entity& caster);
+	Ability(Entity& caster);
+	Ability(const Ability& ability);
 	
-	
-	//~Ability();
+	~Ability();
 	
 	virtual bool castAt(Entity& target) = 0;
 	Ability& operator=(const Ability& ability);
+	int getCooldownRemaining()const;
+	void setCooldownRemaining(int _cooldownRemaining);
+	int getCost()const;
+	void setCost(int _cost);
 };
 

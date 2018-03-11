@@ -11,13 +11,20 @@ Game::Game()
 
 Game::~Game()
 {
+	
 }
 
-int main() {
+void Game::init() {
 	Knight* knight = new Knight("Ivan", Human);
 	Wolf* wolf = new Wolf("Bad Wolf");
 	knight->castAbility(BasicAttack, *wolf);
 	wolf->castAbility(Bite, *knight);
+	Entity p();
+}
+
+int main() {
+	Game* game1 = new Game();
+	game1->init();
 	return 0;
 };
 

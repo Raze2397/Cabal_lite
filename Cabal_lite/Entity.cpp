@@ -1,7 +1,8 @@
 #include "Entity.h"
 #include "BasicAttack.h"
 #include "Bite.h"
-
+#include "Charge.h"
+#include "Debuff.h"
 Entity::Entity(std::string _name) : name(_name)
 {
 	maxHP = 100;
@@ -13,7 +14,11 @@ Entity::Entity(std::string _name) : name(_name)
 	knownAbilities = 0;
 	maxKnownAbilities = DEFAULT_MAX_KNOWN_ABILITIES;
 	abilities = new AbilityNames[DEFAULT_MAX_KNOWN_ABILITIES]();
-	
+	magicResist = 0;
+	maxBuffs = DEFAULT_MAX_BUFFS_DEBUFFS;
+	maxDebuffs = DEFAULT_MAX_BUFFS_DEBUFFS;
+	//buffs = new Buff*[DEFAULT_MAX_BUFFS_DEBUFFS]();
+	debuffs = new Debuff*[DEFAULT_MAX_BUFFS_DEBUFFS]();
 }
 
 Entity::Entity(const Entity & entity) : name(entity.name)
@@ -30,6 +35,8 @@ Entity::Entity(const Entity & entity) : name(entity.name)
 	for (int counter = 0; counter < entity.knownAbilities; counter++) {
 		abilities[counter] = entity.abilities[counter];
 	}
+	magicResist = entity.magicResist;
+	
 }
 
 Entity & Entity::operator=(const Entity & entity)
@@ -46,6 +53,7 @@ Entity & Entity::operator=(const Entity & entity)
 	for (int counter = 0; counter < entity.knownAbilities; counter++) {
 		abilities[counter] = entity.abilities[counter];
 	}
+	magicResist = entity.magicResist;
 	return *this;
 }
 
@@ -58,6 +66,15 @@ void Entity::increaseMaxKnownAbilities()
 	delete[] abilities;
 	abilities = newAbilities;
 	maxKnownAbilities = maxKnownAbilities + DEFAULT_MAX_KNOWN_ABILITIES;
+}
+
+void Entity::clearExpiredDebuffs()
+{
+	for (int counter = 0; counter < maxDebuffs; counter++) {
+		if (debuffs[counter]->getDurationRemaining() == 0) {
+			debuffs[counter] = nullptr;
+		}
+	}
 }
 
 bool Entity::castAbility(AbilityNames ability, Entity & target)
@@ -73,6 +90,12 @@ bool Entity::castAbility(AbilityNames ability, Entity & target)
 			}
 			case Bite: {
 				class Bite* abl = new class Bite(*this);
+				abl->castAt(target);
+				return true;
+				break;
+			}
+			case Charge: {
+				class Charge* abl = new class Charge(*this);
 				abl->castAt(target);
 				return true;
 				break;
@@ -166,6 +189,16 @@ int Entity::getMaxKnownAbilities() const
 void Entity::setMaxKnownAbilities(int _maxKnownAbilities)
 {
 	maxKnownAbilities = _maxKnownAbilities;
+}
+
+int Entity::getMagicResist() const
+{
+	return magicResist;
+}
+
+void Entity::setMagicResist(int _magicResist)
+{
+	magicResist = _magicResist;
 }
 
 AbilityNames * Entity::getAbilities() const
